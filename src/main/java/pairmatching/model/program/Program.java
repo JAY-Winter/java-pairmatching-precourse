@@ -44,11 +44,11 @@ public class Program {
 
     private static void isMissionInLevel(String level, String mission,
         List<LevelMissions> initLevelMissions) {
+        Mission missionToCheck = new Mission(mission);
+
         for (LevelMissions lm : initLevelMissions) {
             if (level.equals(lm.getLevel())) {
-                System.out.println("lm = " + lm.getLevel());
-                System.out.println("lm.getMissions() = " + lm.getMissions());
-                if (!lm.getMissions().contains(mission)) {
+                if (!lm.getMissions().contains(missionToCheck)) {
                     throw new IllegalArgumentException("[ERROR] 레벨에 맞는 미션을 입력하세요.");
                 }
             }
