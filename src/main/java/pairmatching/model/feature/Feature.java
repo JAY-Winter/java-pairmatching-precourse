@@ -25,4 +25,8 @@ public class Feature {
             throw new IllegalArgumentException("[ERROR] 올바른 기능을 입력해주세요.");
         }
     }
+
+    public String getVersion() {
+        return version;
+    }
 }
