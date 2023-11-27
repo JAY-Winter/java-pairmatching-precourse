@@ -1,7 +1,8 @@
-package pairmatching.model.program;
+package pairmatching.model.mission;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Mission {
 
@@ -25,6 +26,29 @@ public class Mission {
     }
 
     public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Mission mission = (Mission) o;
+        return Objects.equals(name, mission.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+
+
+    @Override
+    public String toString() {
         return name;
     }
 }
