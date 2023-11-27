@@ -13,6 +13,10 @@ public class Feature {
     }
 
     private void validate(String version) {
+        validateInvalidVersion(version);
+    }
+
+    private static void validateInvalidVersion(String version) {
         List<String> versions = new ArrayList<>();
         for (FeatureSet featureSet : FeatureSet.values()) {
             versions.add(featureSet.getNumber());
