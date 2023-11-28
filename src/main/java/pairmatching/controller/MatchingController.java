@@ -28,17 +28,9 @@ public class MatchingController {
     public void run() {
         LevelMissionSingleton.getInstance();
         ProgramManager programManager = new ProgramManager();
+        FeatureManager featureManager = new FeatureManager(initFeatureCommands(
+            programManager));
 
-        List<FeatureCommand> featureCommands = Arrays.asList(
-            new PairMatchingImpl(programManager, inputView,
-                outputView),
-            new CheckPairCommandImpl(programManager,
-                inputView, outputView),
-            new ResetPairCommandImpl(programManager,
-                outputView)
-        );
-
-        FeatureManager featureManager = new FeatureManager(featureCommands);
         while (true) {
             Feature feature = inputView.requestSelectFunction();
 
@@ -49,5 +41,16 @@ public class MatchingController {
                 break;
             }
         }
+    }
+
+    private List<FeatureCommand> initFeatureCommands(ProgramManager programManager) {
+        return Arrays.asList(
+            new PairMatchingImpl(programManager, inputView,
+                outputView),
+            new CheckPairCommandImpl(programManager,
+                inputView, outputView),
+            new ResetPairCommandImpl(programManager,
+                outputView)
+        );
     }
 }
