@@ -1,11 +1,18 @@
 package pairmatching.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import pairmatching.model.feature.CheckPairCommandImpl;
 import pairmatching.model.feature.Feature;
+import pairmatching.model.feature.FeatureCommand;
+import pairmatching.model.feature.FeatureManager;
+import pairmatching.model.feature.PairMatchingImpl;
+import pairmatching.model.feature.ResetPairCommandImpl;
 import pairmatching.model.level.Level;
+import pairmatching.model.levelMission.LevelMissionSingleton;
 import pairmatching.model.mission.Mission;
 import pairmatching.model.program.LevelMissions;
 import pairmatching.model.program.Program;
@@ -25,10 +32,10 @@ public class MatchingController {
 
 
     public void run() {
+        LevelMissionSingleton.getInstance();
         ProgramManager programManager = new ProgramManager();
 
         while (true) {
-            // 레벨 별 맞는 미션을 선택해야함 -> 검증 추가 필요
             Feature feature = inputView.requestSelectFunction();
 
             // 페어 매칭
