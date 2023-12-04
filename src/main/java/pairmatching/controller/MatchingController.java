@@ -1,6 +1,5 @@
 package pairmatching.controller;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import pairmatching.model.feature.CheckPairCommandImpl;

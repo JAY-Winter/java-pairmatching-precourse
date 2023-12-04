@@ -45,6 +45,7 @@ public class ProgramManager {
     public List<List<String>> matchingPair(Program program) {
         String path = CourseSet.getPathForInput(program.getCourse());
         List<String> names = FileReaderImpl.readAndPrintResourceFile(path);
+
         int attempts = 0;
         // 3회 시도까지 매칭이 되는지 확인
         while (attempts < 3) {
@@ -69,7 +70,6 @@ public class ProgramManager {
         for (List<String> currentPair : pairs) {
             for (List<String> previousPair : previousMatchingResults) {
                 if (isPairMatchedBefore(currentPair, previousPair)) {
-                    System.out.println("이미 매칭된 페어: " + currentPair);
                     return false;
                 }
             }
